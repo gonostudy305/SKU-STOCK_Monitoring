@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" role="img" aria-label="SKU dashboard">
+  <rect width="32" height="32" rx="7" fill="#0f2742"/>
+  <rect x="6" y="7" width="20" height="18" rx="3" fill="#f8fafc"/>
+  <rect x="8.5" y="10" width="7" height="3" rx="1" fill="#145da0"/>
+  <rect x="16.8" y="10" width="6.7" height="3" rx="1" fill="#137547"/>
+  <rect x="8.5" y="15" width="3" height="7" rx="1" fill="#145da0"/>
+  <rect x="13.3" y="17" width="3" height="5" rx="1" fill="#93620f"/>
+  <rect x="18.1" y="13.5" width="3" height="8.5" rx="1" fill="#6d43c8"/>
+  <path d="M8.8 22.5 13 18.8l4 1.6 5.9-6.1" fill="none" stroke="#c92a2a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="22.9" cy="14.3" r="1.6" fill="#c92a2a"/>
+</svg>
