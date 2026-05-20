@@ -38,9 +38,9 @@
 
 
 .table-shell{overflow:visible!important}
-.top30-scroll{max-height:none!important;overflow:visible!important}
+.top30-scroll{max-height:78vh!important;overflow:auto!important;position:relative}
 .table-wrap{overflow:visible!important}
-.top30-table thead th{position:static!important}
+@media screen{.top30-table thead th{position:sticky!important;top:0;z-index:30;box-shadow:0 2px 0 rgba(15,39,66,.16),0 6px 12px rgba(15,39,66,.12)}}
 .top30-table{table-layout:fixed}
 .top30-table th{white-space:normal;font-size:.72rem;padding:8px 4px;line-height:1.08;text-align:center;vertical-align:middle;overflow:hidden}
 .top30-table td{white-space:normal;font-size:.85rem;padding:9px 6px}
