@@ -77,6 +77,12 @@
 .top30-table tbody td:nth-child(n+10):nth-child(-n+12){background:#fff7e6}
 .top30-table tbody td:nth-child(n+13):nth-child(-n+15){background:#f6f0ff}
 .top30-table tbody td:nth-child(n+16):nth-child(-n+18){background:#fff1f1}
+.sortable-table th{cursor:pointer;user-select:none}
+.sortable-table th.sort-asc::after{content:" ^";font-size:.72rem;opacity:.82}
+.sortable-table th.sort-desc::after{content:" v";font-size:.72rem;opacity:.82}
+.list-sort-controls{display:flex;flex-wrap:wrap;gap:6px;padding:8px 12px;border-bottom:1px solid rgba(15,39,66,.08);background:rgba(255,255,255,.62)}
+.list-sort-controls button{border:1px solid #cfdbea;background:#fff;color:var(--navy);border-radius:6px;padding:4px 8px;font:inherit;font-size:.76rem;font-weight:850;cursor:pointer}
+.list-sort-controls button.active{background:var(--navy);border-color:var(--navy);color:#fff}
 </style>
 </head>
 <body>
@@ -1032,6 +1038,122 @@
   </section>
 
   <div class="footer">Daily Inventory Risk Report &middot; TOP 30 sales metrics from dashboard, stock metrics recalculated from BOXME Inventory / Dead Stock reports &middot; 19/05/2026</div>
+<script>
+(function(){
+  const collator = new Intl.Collator(undefined,{numeric:true,sensitivity:"base"});
+  const riskRank = {critical:1,high:2,medium:3,safe:4};
+
+  function clean(text){
+    return (text || "").replace(/\s+/g," ").trim();
+  }
+
+  function parseDate(text){
+    const match = clean(text).match(/^(\d{1,2})\/(\d{1,2})\/(\d{4})$/);
+    if(!match) return null;
+    return new Date(Number(match[3]),Number(match[2])-1,Number(match[1])).getTime();
+  }
+
+  function parseNumber(text){
+    const value = clean(text).replace(/,/g,"");
+    if(!value || /no sales/i.test(value)) return null;
+    if(/no outbound/i.test(value)) return Number.MAX_SAFE_INTEGER;
+    const match = value.match(/-?\d+(?:\.\d+)?/);
+    if(!match) return null;
+    let number = Number(match[0]);
+    if(!Number.isFinite(number)) return null;
+    if(/\bB\b/i.test(value)) number *= 1000000000;
+    if(/\bM\b/i.test(value)) number *= 1000000;
+    return number;
+  }
+
+  function tableValue(cell, header){
+    const text = clean(cell.innerText);
+    const lower = text.toLowerCase();
+    const risk = Object.keys(riskRank).find(key => lower.includes(key));
+    if(risk) return {type:"number",value:riskRank[risk]};
+    const date = parseDate(text);
+    if(date !== null) return {type:"number",value:date};
+    const shouldParseNumber = header.classList.contains("num") || cell.classList.contains("num") || cell.classList.contains("rank") || /^#?\d[\d,.]*(?:\.\d+)?(?:[mmbbd%])?$/i.test(text);
+    const number = shouldParseNumber ? parseNumber(text) : null;
+    if(number !== null) return {type:"number",value:number};
+    return {type:"text",value:text};
+  }
+
+  function compareValues(a,b,direction){
+    if(a.type === "number" && b.type === "number") return (a.value - b.value) * direction;
+    return collator.compare(String(a.value),String(b.value)) * direction;
+  }
+
+  function initTables(){
+    document.querySelectorAll("table").forEach(table => {
+      const tbody = table.tBodies[0];
+      const headers = table.tHead ? Array.from(table.tHead.rows[0].cells) : [];
+      if(!tbody || headers.length < 2) return;
+      table.classList.add("sortable-table");
+      headers.forEach((header,index) => {
+        header.dataset.sortIndex = String(index);
+        header.title = "Click to sort";
+        header.addEventListener("click",() => {
+          const direction = header.classList.contains("sort-asc") ? -1 : 1;
+          headers.forEach(item => item.classList.remove("sort-asc","sort-desc"));
+          header.classList.add(direction === 1 ? "sort-asc" : "sort-desc");
+          const rows = Array.from(tbody.rows);
+          rows.sort((rowA,rowB) => compareValues(
+            tableValue(rowA.cells[index],header),
+            tableValue(rowB.cells[index],header),
+            direction
+          ));
+          rows.forEach(row => tbody.appendChild(row));
+        });
+      });
+    });
+  }
+
+  function listItemValue(item,type){
+    if(type === "sku"){
+      const match = clean(item.querySelector("span")?.innerText).match(/SKU\s+(\d+)/i);
+      return match ? Number(match[1]) : Number.MAX_SAFE_INTEGER;
+    }
+    if(type === "qty") return parseNumber(item.querySelector("b")?.innerText) ?? 0;
+    return clean(item.querySelector("strong")?.innerText);
+  }
+
+  function initLists(){
+    document.querySelectorAll(".risk-product-list").forEach(list => {
+      if(list.children.length < 2) return;
+      const controls = document.createElement("div");
+      controls.className = "list-sort-controls";
+      [
+        ["Product","name",1],
+        ["SKU","sku",1],
+        ["Qty high","qty",-1],
+        ["Qty low","qty",1]
+      ].forEach(([label,type,direction]) => {
+        const button = document.createElement("button");
+        button.type = "button";
+        button.textContent = label;
+        button.addEventListener("click",() => {
+          controls.querySelectorAll("button").forEach(item => item.classList.remove("active"));
+          button.classList.add("active");
+          const rows = Array.from(list.children);
+          rows.sort((a,b) => {
+            const valueA = listItemValue(a,type);
+            const valueB = listItemValue(b,type);
+            if(typeof valueA === "number" && typeof valueB === "number") return (valueA - valueB) * direction;
+            return collator.compare(String(valueA),String(valueB)) * direction;
+          });
+          rows.forEach(row => list.appendChild(row));
+        });
+        controls.appendChild(button);
+      });
+      list.parentNode.insertBefore(controls,list);
+    });
+  }
+
+  initTables();
+  initLists();
+})();
+</script>
 </main>
 </body>
 </html>
