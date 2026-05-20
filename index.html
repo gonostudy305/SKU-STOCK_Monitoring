@@ -1,0 +1,1037 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<title>Daily Inventory Risk Report - 19/05/2026</title>
+<style>
+:root{--navy:#0f2742;--navy2:#12375d;--bg:#f3f6fa;--card:#ffffff;--text:#162033;--muted:#66758a;--line:#dbe5f0;--blue:#0b6fae;--purple:#6d43c8;--green:#16834a;--red:#c92a2a;--orange:#d35400;--amber:#b77900;}
+*{box-sizing:border-box;margin:0;padding:0}html,body{max-width:100%;overflow-x:hidden}body{font-family:"Segoe UI",Arial,sans-serif;background:var(--bg);color:var(--text);font-size:15px;line-height:1.5}.report-header{background:linear-gradient(135deg,var(--navy) 0%,var(--navy2) 60%,#1f5fbf 100%);color:#fff;padding:28px 34px 26px}.eyebrow{text-transform:uppercase;letter-spacing:.08em;font-weight:800;font-size:.78rem;opacity:.78}.report-header h1{font-size:2.25rem;line-height:1.12;margin-top:6px;font-weight:850}.subline{font-size:1rem;opacity:.88;margin-top:7px}.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}.chip{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.16);border-radius:999px;padding:6px 13px;font-size:.86rem;font-weight:700}.wrap{max-width:1740px;margin:0 auto;padding:22px 18px 36px}.section{background:var(--card);border:1px solid var(--line);box-shadow:0 1px 6px rgba(15,39,66,.08);border-radius:10px;margin-bottom:18px;padding:20px 22px}.section-title{font-size:1.13rem;font-weight:850;color:var(--navy);display:flex;align-items:center;justify-content:space-between;gap:12px;padding-bottom:12px;border-bottom:2px solid #edf2f7;margin-bottom:14px}.section-note{color:var(--muted);font-size:.93rem}.kpis{display:grid;grid-template-columns:repeat(7,1fr);gap:13px;margin-bottom:18px}.kpi{background:#fff;border:1px solid var(--line);border-top:5px solid #9fb3c8;border-radius:10px;box-shadow:0 1px 6px rgba(15,39,66,.08);padding:17px 18px;min-height:112px}.kpi b{display:block;font-size:2.05rem;line-height:1;color:var(--navy);letter-spacing:0}.kpi span{display:block;color:var(--muted);font-size:.9rem;margin-top:8px}.kpi.blue{border-top-color:var(--blue)}.kpi.green{border-top-color:var(--green)}.kpi.red{border-top-color:var(--red)}.kpi.orange{border-top-color:var(--orange)}.kpi.amber{border-top-color:var(--amber)}.kpi.purple{border-top-color:var(--purple)}.kpi .blue-text{color:var(--blue)}.kpi .green-text{color:var(--green)}.kpi .red-text{color:var(--red)}.kpi .orange-text{color:var(--orange)}.kpi .amber-text{color:var(--amber)}.kpi .purple-text{color:var(--purple)}.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:16px}.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.metric{background:#f8fafc;border:1px solid #e4edf5;border-radius:9px;padding:13px 14px}.metric b{display:block;font-size:1.45rem;line-height:1.1}.metric span{display:block;color:var(--muted);font-size:.88rem;margin-top:5px}.source-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:18px}.method-list{padding-left:18px}.method-list li{margin:5px 0}.thresholds{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}.threshold{border:1px solid var(--line);border-radius:9px;padding:10px 12px;background:#f8fafc}.threshold b{display:block;font-size:.9rem}.warehouse-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}.warehouse{border:1px solid var(--line);border-radius:10px;background:#fff;padding:18px 20px;box-shadow:0 1px 6px rgba(15,39,66,.08)}.warehouse.hcm{border-top:5px solid var(--blue)}.warehouse.bn{border-top:5px solid var(--purple)}.warehouse h3{font-size:1.2rem;color:var(--navy);margin-bottom:3px}.warehouse .small{color:var(--muted);font-size:.88rem}.warehouse-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:14px}.warehouse-stats .metric{text-align:center}.actions{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}.action-card{border:1px solid var(--line);border-left:5px solid #9fb3c8;border-radius:10px;padding:14px 16px}.action-main{display:flex;gap:10px;align-items:baseline;flex-wrap:wrap}.action-main strong{font-size:1rem}.action-main span{font-weight:750;color:#26364d}.action-metrics{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}.action-metrics span{background:#fff;border:1px solid #dbe5f0;border-radius:999px;padding:5px 10px;font-size:.9rem}.row-critical,.action-card.row-critical{background:#fff5f5}.row-high,.action-card.row-high{background:#fff8f1}.row-medium,.action-card.row-medium{background:#fffbed}.row-safe{background:#f8fff9}.action-card.row-critical{border-left-color:var(--red)}.action-card.row-high{border-left-color:var(--orange)}.action-card.row-medium{border-left-color:var(--amber)}.table-shell{border:1px solid var(--line);border-radius:10px;overflow:hidden;background:#fff}.top30-scroll{max-height:72vh;overflow:auto;position:relative}.table-wrap{overflow-x:auto}table{width:100%;border-collapse:separate;border-spacing:0}th{background:var(--navy);color:white;font-size:.88rem;line-height:1.2;text-align:left;padding:12px 10px;font-weight:850;white-space:nowrap}td{border-bottom:1px solid #e7eef5;padding:10px 10px;vertical-align:middle;font-size:.94rem}.top30-table thead th{position:sticky;top:0;z-index:10;box-shadow:0 1px 0 rgba(255,255,255,.18)}tr:last-child td{border-bottom:none}.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}.center{text-align:center}.rank{font-weight:850;color:var(--navy);white-space:nowrap}.strong{font-weight:850}.product-cell{min-width:270px;line-height:1.35}.sku{font-family:Consolas,"Courier New",monospace;background:#eaf2fb;color:#125ca0;border-radius:5px;padding:3px 6px;font-size:.88rem;font-weight:800;white-space:nowrap}.tag{display:inline-block;border-radius:5px;color:#fff;font-size:.73rem;font-weight:800;padding:2px 6px;margin:5px 4px 0 0}.tag.hcm{background:var(--blue)}.tag.bn{background:var(--purple)}.tag.neutral{background:#475569}.col-hcm,.stock-hcm{color:var(--blue)}.col-bn,.stock-bn{color:var(--purple)}.stock-total{color:var(--navy)}.top30-table tbody td:nth-child(11){background:#eef7ff}.top30-table tbody td:nth-child(12){background:#f5f0ff}.badge{display:inline-block;border-radius:999px;padding:3px 8px;font-size:.74rem;font-weight:900;white-space:nowrap}.risk-critical{color:#b42318!important;background:#fee4e2}.risk-high{color:#bc4b00!important;background:#ffead5}.risk-medium{color:#946200!important;background:#fff4c2}.risk-safe{color:#087443!important;background:#dcfae6}.mini-table th{font-size:.85rem}.mini-table td{font-size:.92rem}.footer{text-align:center;color:var(--muted);font-size:.86rem;padding:12px 0 22px}.print-hint{font-size:.88rem;color:var(--muted)}
+@media(max-width:1280px){.kpis{grid-template-columns:repeat(4,1fr)}.grid-3{grid-template-columns:1fr 1fr}.actions{grid-template-columns:1fr}.source-grid{grid-template-columns:1fr}.warehouse-stats{grid-template-columns:repeat(2,1fr)}}@media(max-width:820px){body{font-size:14px}.report-header{padding:24px 18px}.report-header h1{font-size:1.7rem}.wrap{padding:14px 10px}.section{padding:16px 14px}.kpis,.warehouse-grid,.grid-2,.grid-3{grid-template-columns:1fr}.thresholds{grid-template-columns:1fr}.chip{white-space:normal}.top30-scroll{max-height:76vh}.product-cell{min-width:230px}}
+@media print{body{background:white;font-size:12px}.report-header{padding:20px 24px}.wrap{max-width:none;padding:12px}.section,.kpi,.warehouse{box-shadow:none}.top30-scroll{max-height:none;overflow:visible}.top30-table thead th{position:static}.kpis{grid-template-columns:repeat(4,1fr)}}
+.source-grid{align-items:start}
+
+.daily-action-v2{border-top:4px solid var(--navy2)}
+.warehouse-action-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.warehouse-action{background:#fff;border:1px solid var(--line);border-radius:12px;padding:16px;box-shadow:0 1px 5px rgba(15,39,66,.06)}
+.warehouse-action.hcm{border-top:5px solid var(--blue)}
+.warehouse-action.bn{border-top:5px solid var(--purple)}
+.warehouse-action-head{display:flex;align-items:flex-end;justify-content:space-between;gap:12px;border-bottom:1px solid var(--line);padding-bottom:10px;margin-bottom:12px}
+.warehouse-action-head h3{font-size:1.22rem;color:var(--navy);margin:0}
+.warehouse-action-head span{color:var(--muted);font-size:.88rem;font-weight:700;text-align:right}
+.risk-group{border:1px solid var(--line);border-left:5px solid #9fb3c8;border-radius:10px;margin-top:11px;background:#fbfdff;overflow:hidden}
+.risk-group.group-critical{border-left-color:var(--red);background:#fff8f8}
+.risk-group.group-high{border-left-color:var(--orange);background:#fffaf5}
+.risk-group.group-medium{border-left-color:var(--amber);background:#fffdf2}
+.risk-group-head{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:10px 12px;border-bottom:1px solid rgba(15,39,66,.08)}
+.risk-group-head em{font-style:normal;color:var(--muted);font-weight:800;font-size:.84rem}
+.risk-product-list{list-style:none;margin:0;padding:0}
+.risk-product-list li{display:grid;grid-template-columns:1fr auto;gap:12px;align-items:center;padding:11px 12px;border-top:1px solid rgba(15,39,66,.06)}
+.risk-product-list li:first-child{border-top:none}
+.risk-product-list strong{display:block;font-size:.96rem;color:var(--text);line-height:1.3}
+.risk-product-list span{display:block;color:var(--muted);font-size:.82rem;margin-top:3px;font-weight:700}
+.risk-product-list b{min-width:62px;text-align:right;font-size:1.24rem;color:var(--navy);font-variant-numeric:tabular-nums}
+.risk-product-list .empty-risk strong{color:#8a98aa;font-weight:800}
+.risk-product-list .empty-risk b{color:#8a98aa}
+@media(max-width:980px){.warehouse-action-grid{grid-template-columns:1fr}.warehouse-action-head{align-items:flex-start;flex-direction:column}.warehouse-action-head span{text-align:left}}
+
+
+.table-shell{overflow:visible!important}
+.top30-scroll{max-height:none!important;overflow:visible!important}
+.table-wrap{overflow:visible!important}
+.top30-table thead th{position:static!important}
+.top30-table{table-layout:fixed}
+.top30-table th{white-space:normal;font-size:.72rem;padding:8px 4px;line-height:1.08;text-align:center;vertical-align:middle;overflow:hidden}
+.top30-table td{white-space:normal;font-size:.85rem;padding:9px 6px}
+.top30-table .product-cell{min-width:0}
+.top30-table .num{white-space:nowrap}
+.top30-table thead th.num,.top30-table thead th.center{white-space:normal;overflow-wrap:anywhere;word-break:normal}
+.top30-table .sku{font-size:.75rem;padding:2px 4px}
+.top30-table .badge{font-size:.64rem;padding:3px 5px}
+.top30-table .tag{font-size:.62rem;padding:2px 4px;margin-top:4px}
+.top30-table th:nth-child(1),.top30-table td:nth-child(1){width:3%}
+.top30-table th:nth-child(2),.top30-table td:nth-child(2){width:5%}
+.top30-table th:nth-child(3),.top30-table td:nth-child(3){width:18%}
+.top30-table th:nth-child(4),.top30-table td:nth-child(4){width:6%}
+.top30-table th:nth-child(5),.top30-table td:nth-child(5){width:6%}
+.top30-table th:nth-child(6),.top30-table td:nth-child(6){width:5.5%}
+.top30-table th:nth-child(7),.top30-table td:nth-child(7){width:5%}
+.top30-table th:nth-child(8),.top30-table td:nth-child(8){width:5%}
+.top30-table th:nth-child(9),.top30-table td:nth-child(9){width:4.5%}
+.top30-table th:nth-child(10),.top30-table td:nth-child(10){width:5.2%}
+.top30-table th:nth-child(11),.top30-table td:nth-child(11){width:5%}
+.top30-table th:nth-child(12),.top30-table td:nth-child(12){width:5%}
+.top30-table th:nth-child(13),.top30-table td:nth-child(13){width:4.8%}
+.top30-table th:nth-child(14),.top30-table td:nth-child(14){width:4.8%}
+.top30-table th:nth-child(15),.top30-table td:nth-child(15){width:4.8%}
+.top30-table th:nth-child(16),.top30-table td:nth-child(16){width:3.8%}
+.top30-table th:nth-child(17),.top30-table td:nth-child(17){width:3.8%}
+.top30-table th:nth-child(18),.top30-table td:nth-child(18){width:4%}
+.top30-table th:nth-child(n+4):nth-child(-n+6){background:#145da0}
+.top30-table th:nth-child(n+7):nth-child(-n+9){background:#137547}
+.top30-table th:nth-child(n+10):nth-child(-n+12){background:#93620f}
+.top30-table th:nth-child(n+13):nth-child(-n+15){background:#6d43c8}
+.top30-table th:nth-child(n+16):nth-child(-n+18){background:#9f1f1f}
+.top30-table tbody td:nth-child(n+4):nth-child(-n+6){background:#edf6ff}
+.top30-table tbody td:nth-child(n+7):nth-child(-n+9){background:#effaf3}
+.top30-table tbody td:nth-child(n+10):nth-child(-n+12){background:#fff7e6}
+.top30-table tbody td:nth-child(n+13):nth-child(-n+15){background:#f6f0ff}
+.top30-table tbody td:nth-child(n+16):nth-child(-n+18){background:#fff1f1}
+</style>
+</head>
+<body>
+<header class="report-header">
+  <div class="eyebrow">Daily inventory control</div>
+  <h1>Daily Inventory Risk Report</h1>
+  <div class="subline">South HCM &amp; North BN &middot; ECommerce stock, DOS and slow moving inventory &middot; Data refreshed 19/05/2026</div>
+  <div class="chips">
+    <span class="chip">Sales window: 18/03-18/05/2026 (61 days)</span>
+    <span class="chip">Total ECom NMV: 3.10B VND</span>
+    <span class="chip">Total ECom units: 13,632</span>
+    <span class="chip">Top 30 NMV: 2.56B VND (83% of NMV)</span>
+    <span class="chip">BOXME stock files verified: 2 (Inventory / Dead Stock)</span>
+  </div>
+</header>
+<main class="wrap">
+  <section class="kpis">
+    <div class="kpi blue"><b class="blue-text">3.10B</b><span>Total ECom NMV</span></div>
+    <div class="kpi green"><b class="green-text">30/30</b><span>Total ECom safe</span></div>
+    <div class="kpi red"><b class="red-text">3</b><span>SKU critical</span></div>
+    <div class="kpi orange"><b class="orange-text">0</b><span>SKU high</span></div>
+    <div class="kpi amber"><b class="amber-text">1</b><span>SKU medium</span></div>
+    <div class="kpi amber"><b class="amber-text">2,035</b><span>Slow moving units</span></div>
+    <div class="kpi purple"><b class="purple-text">2,169</b><span>Bingo stock</span></div>
+  </section>
+
+
+  <section class="section daily-action-v2">
+    <div class="section-title"><span>Daily Action List</span></div>
+    <div class="warehouse-action-grid">
+      
+      <div class="warehouse-action hcm">
+        <div class="warehouse-action-head"><h3>South HCM Stock</h3></div>
+        
+        <div class="risk-group group-critical">
+          <div class="risk-group-head"><span class="badge risk-critical">CRITICAL RISK</span><em>Stock quantity</em></div>
+          <ul class="risk-product-list"><li><div><strong>MOLFIX OXY TA QUAN XL 46 S.JUMBO VN</strong><span>#16 &middot; SKU 5103319</span></div><b>6</b></li><li><div><strong>MOLFIX OXY TA QUAN XXL 42 S.JUMBO VN</strong><span>#24 &middot; SKU 5103280</span></div><b>0</b></li></ul>
+        </div>
+        
+        <div class="risk-group group-high">
+          <div class="risk-group-head"><span class="badge risk-high">HIGH RISK</span><em>Stock quantity</em></div>
+          <ul class="risk-product-list"><li class="empty-risk"><div><strong>No product</strong><span>No SKU in this risk level</span></div><b>0</b></li></ul>
+        </div>
+        
+        <div class="risk-group group-medium">
+          <div class="risk-group-head"><span class="badge risk-medium">MEDIUM RISK</span><em>Stock quantity</em></div>
+          <ul class="risk-product-list"><li><div><strong>MOLFIX OXY TA QUAN L 52 S.JUMBO VN</strong><span>#21 &middot; SKU 5103318</span></div><b>47</b></li></ul>
+        </div>
+      </div>
+      
+      <div class="warehouse-action bn">
+        <div class="warehouse-action-head"><h3>North BN Stock</h3></div>
+        
+        <div class="risk-group group-critical">
+          <div class="risk-group-head"><span class="badge risk-critical">CRITICAL RISK</span><em>Stock quantity</em></div>
+          <ul class="risk-product-list"><li><div><strong>MOLFIX TN KHAN UOT SS DIU NHE 100X12</strong><span>#22 &middot; SKU 4010677</span></div><b>0</b></li></ul>
+        </div>
+        
+        <div class="risk-group group-high">
+          <div class="risk-group-head"><span class="badge risk-high">HIGH RISK</span><em>Stock quantity</em></div>
+          <ul class="risk-product-list"><li class="empty-risk"><div><strong>No product</strong><span>No SKU in this risk level</span></div><b>0</b></li></ul>
+        </div>
+        
+        <div class="risk-group group-medium">
+          <div class="risk-group-head"><span class="badge risk-medium">MEDIUM RISK</span><em>Stock quantity</em></div>
+          <ul class="risk-product-list"><li class="empty-risk"><div><strong>No product</strong><span>No SKU in this risk level</span></div><b>0</b></li></ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="warehouse-grid">
+    <div class="warehouse hcm">
+      <h3>South HCM</h3><div class="small">Boxme Le Minh Xuan - Ho Chi Minh</div>
+      <div class="warehouse-stats">
+        <div class="metric"><b class="col-hcm">2.59B</b><span>NMV</span></div>
+        <div class="metric"><b class="col-hcm">11,631</b><span>Units sold</span></div>
+        <div class="metric"><b>14,597</b><span>TOP30 stock</span></div>
+        <div class="metric"><b class="col-hcm">84%</b><span>NMV share</span></div>
+      </div>
+    </div>
+    <div class="warehouse bn">
+      <h3>North BN</h3><div class="small">Boxme VSIP - Bac Ninh</div>
+      <div class="warehouse-stats">
+        <div class="metric"><b class="col-bn">0.51B</b><span>NMV</span></div>
+        <div class="metric"><b class="col-bn">2,001</b><span>Units sold</span></div>
+        <div class="metric"><b>6,660</b><span>TOP30 stock</span></div>
+        <div class="metric"><b class="col-bn">16%</b><span>NMV share</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-title"><span>TOP 30 SKU Risk Table</span><span class="section-note">Full content view</span></div>
+    <div class="table-shell top30-scroll">
+      <table class="top30-table">
+        <thead>
+          <tr>
+            <th>#</th><th>SKU</th><th>Product</th>
+            <th class="num">NMV<br>Total</th><th class="num">NMV<br>HCM</th><th class="num">NMV<br>BN</th>
+            <th class="num">Units<br>Total</th><th class="num">Units<br>HCM</th><th class="num">Units<br>BN</th>
+            <th class="num">Stock<br>Total</th><th class="num">South<br>HCM</th><th class="num">North<br>BN</th>
+            <th class="num">DOS<br>Total</th><th class="num">DOS<br>HCM</th><th class="num">DOS<br>BN</th>
+            <th class="center">Risk<br>HCM</th><th class="center">Risk<br>BN</th><th class="center">Risk<br>Total</th>
+          </tr>
+        </thead>
+        <tbody>
+        <tr class="row-safe">
+          <td class="rank">#1</td>
+          <td><code class="sku">50009027</code></td>
+          <td class="product-cell">(COMBO 2) MLF OXY PANTS XL 46X2 S.JUMBO VN PM (EC)<div class="mini-tags"><span class="tag hcm">HCM 76%</span><span class="tag bn">BN 24%</span><span class="tag neutral">South HCM</span></div></td>
+          <td class="num strong">247.5M</td>
+          <td class="num col-hcm">188.5M</td>
+          <td class="num col-bn">59.0M</td>
+          <td class="num strong">652</td>
+          <td class="num col-hcm">491</td>
+          <td class="num col-bn">161</td>
+          <td class="num stock-total strong">731</td>
+          <td class="num stock-hcm">507</td>
+          <td class="num stock-bn">224</td>
+          <td class="num strong">68d</td>
+          <td class="num risk-safe">47d</td>
+          <td class="num risk-safe">21d</td>
+          <td class="center"><span class="badge risk-safe">SAFE</span></td>
+          <td class="center"><span class="badge risk-safe">SAFE</span></td>
+          <td class="center"><span class="badge risk-safe">SAFE</span></td>
+        </tr>
+        <tr class="row-safe">
+          <td class="rank">#2</td>
+          <td><code class="sku">50009046</code></td>
+          <td class="product-cell">(COMBO 2) MLF OXY PANTS L 52X2 S.JUMBO VN PM (EC)<div class="mini-tags"><span class="tag hcm">HCM 79%</span><span class="tag bn">BN 21%</span><span class="tag neutral">South HCM</span></div></td>
+          <td class="num strong">239.8M</td>
+          <td class="num col-hcm">188.6M</td>
+          <td class="num col-bn">51.2M</td>
+          <td class="num strong">636</td>
+          <td class="num col-hcm">502</td>
+          <td class="num col-bn">134</td>
+          <td class="num stock-total strong">556</td>
+          <td class="num stock-hcm">361</td>
+          <td class="num stock-bn">195</td>
+          <td class="num strong">53d</td>
+          <td class="num risk-safe">35d</td>
+          <td class="num risk-safe">19d</td>
+          <td class="center"><span class="badge risk-safe">SAFE</span></td>
+          <td class="center"><span class="badge risk-safe">SAFE</span></td>
+          <td class="center"><span class="badge risk-safe">SAFE</span></td>
+        </tr>
+        <tr class="row-safe">
+          <td class="rank">#3</td>
+          <td><code class="sku">5105135</code></td>
+          <td class="product-cell">(COMBO 2) MLF NAT PANTS XL 46X2 S.JUMBO VN W1 (EC)<div class="mini-tags"><span class="tag hcm">HCM 88%</span><span class="tag bn">BN 12%</span><span class="tag neutral">South HCM</span></div></td>
+          <td class="num strong">211.4M</td>
+          <td class="num col-hcm">185.4M</td>
+          <td class="num col-bn">26.0M</td>
+          <td class="num strong">565</td>
+          <td class="num col-hcm">496</td>
+          <td class="num col-bn">69</td>
+          <td class="num stock-total strong">1,527</td>
+          <td class="num stock-hcm">1,035</td>
+          <td class="num stock-bn">492</td>
+          <td class="num strong">165d</td>
+          <td class="num risk-safe">112d</td>
+          <td class="num risk-safe">53d</td>
+          <td class="center"><span class="badge risk-safe">SAFE</span></td>
+          <td class="center"><span class="badge risk-safe">SAFE</span></td>
+          <td class="center"><span class="badge risk-safe">SAFE</span></td>
+        </tr>
+        <tr class="row-safe">
+          <td class="rank">#4</td>
+          <td><code class="sku">5105134</code></td>
+          <td class="product-cell">(COMBO 2) MLF NAT PANTS L 52X2 S.JUMBO VN W1 (EC)<div class="mini-tags"><span class="tag hcm">HCM 87%</span><span class="tag bn">BN 13%</span><span class="tag neutral">South HCM</span></div></td>
+          <td class="num strong">208.0M</td>
+          <td class="num col-hcm">181.2M</td>
+          <td class="num col-bn">26.9M</td>
+          <td class="num strong">568</td>
+          <td class="num col-hcm">495</td>
+          <td class="num col-bn">73</td>
+          <td class="num stock-total strong">727</td>
+          <td class="num stock-hcm">451</td>
+          <td class="num stock-bn">276</td>
+          <td class="num strong">78d</td>
+          <td class="num risk-safe">48d</td>
+          <td class="num risk-safe">30d</td>
+          <td class="center"><span class="badge risk-safe">SAFE</span></td>
+          <td class="center"><span class="badge risk-safe">SAFE</span></td>
+          <td class="center"><span class="badge risk-safe">SAFE</span></td>
+        </tr>
+        <tr class="row-safe">
+          <td class="rank">#5</td>
+          <td><code class="sku">50009059</code></td>
+          <td class="product-cell">(COMBO 2) MLF OXY PANTS XXL 42X2 S.JMB VN PM (EC)<div class="mini-tags"><span class="tag hcm">HCM 86%</span><span class="tag bn">BN 14%</span><span class="tag neutral">South HCM</span></div></td>
+          <td class="num strong">140.9M</td>
+          <td class="num col-hcm">121.2M</td>
+          <td class="num col-bn">19.6M</td>
+          <td class="num strong">369</td>
+          <td class="num col-hcm">315</td>
+          <td class="num col-bn">54</td>
+          <td class="num stock-total strong">586</td>
+          <td class="num stock-hcm">354</td>
+          <td class="num stock-bn">232</td>
+          <td class="num strong">97d</td>
+          <td class="num risk-safe">59d</td>
+          <td class="num risk-safe">38d</td>
+          <td class="center"><span class="badge risk-safe">SAFE</span></td>
+          <td class="center"><span class="badge risk-safe">SAFE</span></td>
+          <td class="center"><span class="badge risk-safe">SAFE</span></td>
+        </tr>
+        <tr class="row-safe">
+          <td class="rank">#6</td>
+          <td><code class="sku">5105136</code></td>
+          <td class="product-cell">(COMBO 2) MLF NAT PANTS XXL 42X2 S.JMB VN W1 (EC)<div class="mini-tags"><span class="tag hcm">HCM 91%</span><span class="tag bn">BN 9%</span><span class="tag neutral">South HCM</span></div></td>
+          <td class="num strong">134.2M</td>
+          <td class="num col-hcm">122.6M</td>
+          <td class="num col-bn">11.6M</td>
+          <td class="num strong">360</td>
+          <td class="num col-hcm">329</td>
+          <td class="num col-bn">31</td>
+          <td class="num stock-total strong">834</td>
+          <td class="num stock-hcm">512</td>
+          <td class="num stock-bn">322</td>
+          <td class="num strong">141d</td>
+          <td class="num risk-safe">87d</td>
+          <td class="num risk-safe">55d</td>
+          <td class="center"><span class="badge risk-safe">SAFE</span></td>
+          <td class="center"><span class="badge risk-safe">SAFE</span></td>
+          <td class="center"><span class="badge risk-safe">SAFE</span></td>
+        </tr>
+        <tr class="row-safe">
+          <td class="rank">#7</td>
+          <td><code class="sku">4012852</code></td>
+          <td class="product-cell">(COMBO 3) MOLFIX OXY PANTS XL 46X3 S.JUMBO VN PM<div class="mini-tags"><span class="tag hcm">HCM 85%</span><span class="tag bn">BN 15%</span><span class="tag neutral">South HCM</span></div></td>
+          <td class="num strong">102.1M</td>
+          <td class="num col-hcm">86.7M</td>
+          <td class="num col-bn">15.4M</td>
+          <td class="num strong">172</td>
+          <td class="num col-hcm">146</td>
+          <td class="num col-bn">26</td>
+          <td class="num stock-total strong">826</td>
+          <td class="num stock-hcm">590</td>
+          <td class="num stock-bn">236</td>
+          <td class="num strong">293d</td>
+          <td class="num risk-safe">209d</td>
+          <td class="num risk-safe">84d</td>
+          <td class="center"><span class="badge risk-safe">SAFE</span></td>
+          <td class="center"><span class="badge risk-safe">SAFE</span></td>
+          <td class="center"><span class="badge risk-safe">SAFE</span></td>
+        </tr>
+        <tr class="row-safe">
+          <td class="rank">#8</td>
+          <td><code class="sku">4011765</code></td>
+          <td class="product-cell">MLF TN TA QUAN XL 46X3 S.JUMBO VN W1<div class="mini-tags"><span class="tag hcm">HCM 93%</span><span class="tag bn">BN 7%</span><span class="tag neutral">South HCM</span></div></td>
+          <td class="num strong">97.3M</td>
+          <td class="num col-hcm">90.9M</td>
+          <td class="num col-bn">6.4M</td>
+          <td class="num strong">227</td>
+          <td class="num col-hcm">199</td>
+          <td class="num col-bn">28</td>
+          <td class="num stock-total strong">769</td>
+          <td class="num stock-hcm">470</td>
+          <td class="num stock-bn">299</td>
+          <td class="num strong">207d</td>
+          <td class="num risk-safe">126d</td>
+          <td class="num risk-safe">80d</td>
+          <td class="center"><span class="badge risk-safe">SAFE</span></td>
+          <td class="center"><span class="badge risk-safe">SAFE</span></td>
+          <td class="center"><span class="badge risk-safe">SAFE</span></td>
+        </tr>
+        <tr class="row-safe">
+          <td class="rank">#9</td>
+          <td><code class="sku">4012352</code></td>
+          <td class="product-cell">BVS NEW MOLPED TN M.LANH CANH 8X8<div class="mini-tags"><span class="tag hcm">HCM 90%</span><span class="tag bn">BN 10%</span><span class="tag neutral">South HCM</span></div></td>
+          <td class="num strong">83.2M</td>
+          <td class="num col-hcm">74.8M</td>
+          <td class="num col-bn">8.4M</td>
+          <td class="num strong">505</td>
+          <td class="num col-hcm">454</td>
+          <td class="num col-bn">51</td>
+          <td class="num stock-total strong">1,192</td>
+          <td class="num stock-hcm">861</td>
+          <td class="num stock-bn">331</td>
+          <td class="num strong">144d</td>
+          <td class="num risk-safe">104d</td>
+          <td class="num risk-safe">40d</td>
+          <td class="center"><span class="badge risk-safe">SAFE</span></td>
+          <td class="center"><span class="badge risk-safe">SAFE</span></td>
+          <td class="center"><span class="badge risk-safe">SAFE</span></td>
+        </tr>
+        <tr class="row-safe">
+          <td class="rank">#10</td>
+          <td><code class="sku">5101898</code></td>
+          <td class="product-cell">MLF S.DREAMS PANTS XL (34+4) JMB TH-MY<div class="mini-tags"><span class="tag hcm">HCM 83%</span><span class="tag bn">BN 17%</span><span class="tag neutral">South HCM</span></div></td>
+          <td class="num strong">74.9M</td>
+          <td class="num col-hcm">62.5M</td>
+          <td class="num col-bn">12.4M</td>
+          <td class="num strong">393</td>
+          <td class="num col-hcm">328</td>
+          <td class="num col-bn">65</td>
+          <td class="num stock-total strong">1,125</td>
+          <td class="num stock-hcm">838</td>
+          <td class="num stock-bn">287</td>
+          <td class="num strong">175d</td>
+          <td class="num risk-safe">130d</td>
+          <td class="num risk-safe">45d</td>
+          <td class="center"><span class="badge risk-safe">SAFE</span></td>
+          <td class="center"><span class="badge risk-safe">SAFE</span></td>
+          <td class="center"><span class="badge risk-safe">SAFE</span></td>
+        </tr>
+        <tr class="row-safe">
+          <td class="rank">#11</td>
+          <td><code class="sku">50009058</code></td>
+          <td class="product-cell">(COMBO 2) MLF OXY PANTS M 56X2 S.JUMBO VN PM (EC)<div class="mini-tags"><span class="tag hcm">HCM 68%</span><span class="tag bn">BN 32%</span><span class="tag neutral">Balanced</span></div></td>
+          <td class="num strong">72.6M</td>
+          <td class="num col-hcm">49.1M</td>
+          <td class="num col-bn">23.4M</td>
+          <td class="num strong">195</td>
+          <td class="num col-hcm">130</td>
+          <td class="num col-bn">65</td>
+          <td class="num stock-total strong">260</td>
+          <td class="num stock-hcm">123</td>
+          <td class="num stock-bn">137</td>
+          <td class="num strong">81d</td>
+          <td class="num risk-safe">38d</td>
+          <td class="num risk-safe">43d</td>
+          <td class="center"><span class="badge risk-safe">SAFE</span></td>
+          <td class="center"><span class="badge risk-safe">SAFE</span></td>
+          <td class="center"><span class="badge risk-safe">SAFE</span></td>
+        </tr>
+        <tr class="row-safe">
+          <td class="rank">#12</td>
+          <td><code class="sku">4012701</code></td>
+          <td class="product-cell">MLF NAT PANTS L 52 S.JUMBO W1 PCK VN<div class="mini-tags"><span class="tag hcm">HCM 95%</span><span class="tag bn">BN 5%</span><span class="tag neutral">South HCM</span></div></td>
+          <td class="num strong">71.8M</td>
+          <td class="num col-hcm">68.5M</td>
+          <td class="num col-bn">3.3M</td>
+          <td class="num strong">134</td>
+          <td class="num col-hcm">128</td>
+          <td class="num col-bn">6</td>
+          <td class="num stock-total strong">1,088</td>
+          <td class="num stock-hcm">795</td>
+          <td class="num stock-bn">293</td>
+          <td class="num strong">495d</td>
+          <td class="num risk-safe">362d</td>
+          <td class="num risk-safe">133d</td>
+          <td class="center"><span class="badge risk-safe">SAFE</span></td>
+          <td class="center"><span class="badge risk-safe">SAFE</span></td>
+          <td class="center"><span class="badge risk-safe">SAFE</span></td>
+        </tr>
+        <tr class="row-safe">
+          <td class="rank">#13</td>
+          <td><code class="sku">5102718</code></td>
+          <td class="product-cell">MLF S.DREAMS PANTS XXL(30+4) JMB TH-MY<div class="mini-tags"><span class="tag hcm">HCM 85%</span><span class="tag bn">BN 15%</span><span class="tag neutral">South HCM</span></div></td>
+          <td class="num strong">71.3M</td>
+          <td class="num col-hcm">60.4M</td>
+          <td class="num col-bn">10.9M</td>
+          <td class="num strong">381</td>
+          <td class="num col-hcm">324</td>
+          <td class="num col-bn">57</td>
+          <td class="num stock-total strong">1,045</td>
+          <td class="num stock-hcm">766</td>
+          <td class="num stock-bn">279</td>
+          <td class="num strong">167d</td>
+          <td class="num risk-safe">123d</td>
+          <td class="num risk-safe">45d</td>
+          <td class="center"><span class="badge risk-safe">SAFE</span></td>
+          <td class="center"><span class="badge risk-safe">SAFE</span></td>
+          <td class="center"><span class="badge risk-safe">SAFE</span></td>
+        </tr>
+        <tr class="row-safe">
+          <td class="rank">#14</td>
+          <td><code class="sku">5101886</code></td>
+          <td class="product-cell">MLF S.DREAMS PANTS L (40+4) JMB TH-MY<div class="mini-tags"><span class="tag hcm">HCM 83%</span><span class="tag bn">BN 17%</span><span class="tag neutral">South HCM</span></div></td>
+          <td class="num strong">71.3M</td>
+          <td class="num col-hcm">58.9M</td>
+          <td class="num col-bn">12.4M</td>
+          <td class="num strong">375</td>
+          <td class="num col-hcm">308</td>
+          <td class="num col-bn">67</td>
+          <td class="num stock-total strong">1,154</td>
+          <td class="num stock-hcm">878</td>
+          <td class="num stock-bn">276</td>
+          <td class="num strong">188d</td>
+          <td class="num risk-safe">143d</td>
+          <td class="num risk-safe">45d</td>
+          <td class="center"><span class="badge risk-safe">SAFE</span></td>
+          <td class="center"><span class="badge risk-safe">SAFE</span></td>
+          <td class="center"><span class="badge risk-safe">SAFE</span></td>
+        </tr>
+        <tr class="row-safe">
+          <td class="rank">#15</td>
+          <td><code class="sku">4012851</code></td>
+          <td class="product-cell">(COMBO 3) MOLFIX OXY PANTS L 52X3 S.JUMBO VN PM<div class="mini-tags"><span class="tag hcm">HCM 76%</span><span class="tag bn">BN 24%</span><span class="tag neutral">South HCM</span></div></td>
+          <td class="num strong">69.1M</td>
+          <td class="num col-hcm">52.6M</td>
+          <td class="num col-bn">16.6M</td>
+          <td class="num strong">116</td>
+          <td class="num col-hcm">88</td>
+          <td class="num col-bn">28</td>
+          <td class="num stock-total strong">561</td>
+          <td class="num stock-hcm">385</td>
+          <td class="num stock-bn">176</td>
+          <td class="num strong">295d</td>
+          <td class="num risk-safe">202d</td>
+          <td class="num risk-safe">93d</td>
+          <td class="center"><span class="badge risk-safe">SAFE</span></td>
+          <td class="center"><span class="badge risk-safe">SAFE</span></td>
+          <td class="center"><span class="badge risk-safe">SAFE</span></td>
+        </tr>
+        <tr class="row-critical">
+          <td class="rank">#16</td>
+          <td><code class="sku">5103319</code></td>
+          <td class="product-cell">MOLFIX OXY TA QUAN XL 46 S.JUMBO VN<div class="mini-tags"><span class="tag hcm">HCM 75%</span><span class="tag bn">BN 25%</span><span class="tag neutral">South HCM</span></div></td>
+          <td class="num strong">64.5M</td>
+          <td class="num col-hcm">48.1M</td>
+          <td class="num col-bn">16.4M</td>
+          <td class="num strong">403</td>
+          <td class="num col-hcm">308</td>
+          <td class="num col-bn">95</td>
+          <td class="num stock-total strong">95</td>
+          <td class="num stock-hcm">6</td>
+          <td class="num stock-bn">89</td>
+          <td class="num strong">14d</td>
+          <td class="num risk-critical">0.9d</td>
+          <td class="num risk-safe">13d</td>
+          <td class="center"><span class="badge risk-critical">CRITICAL</span></td>
+          <td class="center"><span class="badge risk-safe">SAFE</span></td>
+          <td class="center"><span class="badge risk-safe">SAFE</span></td>
+        </tr>
+        <tr class="row-safe">
+          <td class="rank">#17</td>
+          <td><code class="sku">5085944</code></td>
+          <td class="product-cell">MLF TN TA QUAN XXXL (22+6) pcs JUMBO VN<div class="mini-tags"><span class="tag hcm">HCM 88%</span><span class="tag bn">BN 12%</span><span class="tag neutral">South HCM</span></div></td>
+          <td class="num strong">59.8M</td>
+          <td class="num col-hcm">52.7M</td>
+          <td class="num col-bn">7.1M</td>
+          <td class="num strong">302</td>
+          <td class="num col-hcm">266</td>
+          <td class="num col-bn">36</td>
+          <td class="num stock-total strong">1,283</td>
+          <td class="num stock-hcm">851</td>
+          <td class="num stock-bn">432</td>
+          <td class="num strong">259d</td>
+          <td class="num risk-safe">172d</td>
+          <td class="num risk-safe">87d</td>
+          <td class="center"><span class="badge risk-safe">SAFE</span></td>
+          <td class="center"><span class="badge risk-safe">SAFE</span></td>
+          <td class="center"><span class="badge risk-safe">SAFE</span></td>
+        </tr>
+        <tr class="row-safe">
+          <td class="rank">#18</td>
+          <td><code class="sku">5105124</code></td>
+          <td class="product-cell">(COMBO 2) MLF NAT PANTS M 56X2 S.JUMBO VN W1 (EC)<div class="mini-tags"><span class="tag hcm">HCM 89%</span><span class="tag bn">BN 11%</span><span class="tag neutral">South HCM</span></div></td>
+          <td class="num strong">57.7M</td>
+          <td class="num col-hcm">51.5M</td>
+          <td class="num col-bn">6.2M</td>
+          <td class="num strong">158</td>
+          <td class="num col-hcm">141</td>
+          <td class="num col-bn">17</td>
+          <td class="num stock-total strong">482</td>
+          <td class="num stock-hcm">315</td>
+          <td class="num stock-bn">167</td>
+          <td class="num strong">186d</td>
+          <td class="num risk-safe">122d</td>
+          <td class="num risk-safe">64d</td>
+          <td class="center"><span class="badge risk-safe">SAFE</span></td>
+          <td class="center"><span class="badge risk-safe">SAFE</span></td>
+          <td class="center"><span class="badge risk-safe">SAFE</span></td>
+        </tr>
+        <tr class="row-safe">
+          <td class="rank">#19</td>
+          <td><code class="sku">4012861</code></td>
+          <td class="product-cell">(COMBO 3) MOLFIX OXY PANTS XXL 42X3 S.JUMBO VN PM<div class="mini-tags"><span class="tag hcm">HCM 86%</span><span class="tag bn">BN 14%</span><span class="tag neutral">South HCM</span></div></td>
+          <td class="num strong">56.7M</td>
+          <td class="num col-hcm">48.6M</td>
+          <td class="num col-bn">8.2M</td>
+          <td class="num strong">96</td>
+          <td class="num col-hcm">82</td>
+          <td class="num col-bn">14</td>
+          <td class="num stock-total strong">608</td>
+          <td class="num stock-hcm">461</td>
+          <td class="num stock-bn">147</td>
+          <td class="num strong">386d</td>
+          <td class="num risk-safe">293d</td>
+          <td class="num risk-safe">93d</td>
+          <td class="center"><span class="badge risk-safe">SAFE</span></td>
+          <td class="center"><span class="badge risk-safe">SAFE</span></td>
+          <td class="center"><span class="badge risk-safe">SAFE</span></td>
+        </tr>
+        <tr class="row-safe">
+          <td class="rank">#20</td>
+          <td><code class="sku">4012451</code></td>
+          <td class="product-cell">BVS MOLPED TN KHANGKHUAN SMCANH 8X8<div class="mini-tags"><span class="tag hcm">HCM 75%</span><span class="tag bn">BN 25%</span><span class="tag neutral">South HCM</span></div></td>
+          <td class="num strong">53.9M</td>
+          <td class="num col-hcm">40.4M</td>
+          <td class="num col-bn">13.4M</td>
+          <td class="num strong">341</td>
+          <td class="num col-hcm">262</td>
+          <td class="num col-bn">79</td>
+          <td class="num stock-total strong">949</td>
+          <td class="num stock-hcm">809</td>
+          <td class="num stock-bn">140</td>
+          <td class="num strong">170d</td>
+          <td class="num risk-safe">145d</td>
+          <td class="num risk-safe">25d</td>
+          <td class="center"><span class="badge risk-safe">SAFE</span></td>
+          <td class="center"><span class="badge risk-safe">SAFE</span></td>
+          <td class="center"><span class="badge risk-safe">SAFE</span></td>
+        </tr>
+        <tr class="row-medium">
+          <td class="rank">#21</td>
+          <td><code class="sku">5103318</code></td>
+          <td class="product-cell">MOLFIX OXY TA QUAN L 52 S.JUMBO VN<div class="mini-tags"><span class="tag hcm">HCM 81%</span><span class="tag bn">BN 19%</span><span class="tag neutral">South HCM</span></div></td>
+          <td class="num strong">51.2M</td>
+          <td class="num col-hcm">41.3M</td>
+          <td class="num col-bn">9.9M</td>
+          <td class="num strong">329</td>
+          <td class="num col-hcm">262</td>
+          <td class="num col-bn">67</td>
+          <td class="num stock-total strong">146</td>
+          <td class="num stock-hcm">47</td>
+          <td class="num stock-bn">99</td>
+          <td class="num strong">27d</td>
+          <td class="num risk-medium">8.7d</td>
+          <td class="num risk-safe">18d</td>
+          <td class="center"><span class="badge risk-medium">MEDIUM</span></td>
+          <td class="center"><span class="badge risk-safe">SAFE</span></td>
+          <td class="center"><span class="badge risk-safe">SAFE</span></td>
+        </tr>
+        <tr class="row-critical">
+          <td class="rank">#22</td>
+          <td><code class="sku">4010677</code></td>
+          <td class="product-cell">MOLFIX TN KHAN UOT SS DIU NHE 100X12<div class="mini-tags"><span class="tag hcm">HCM 100%</span><span class="tag bn">BN 0%</span><span class="tag neutral">South HCM</span></div></td>
+          <td class="num strong">50.9M</td>
+          <td class="num col-hcm">50.9M</td>
+          <td class="num col-bn">0.0M</td>
+          <td class="num strong">168</td>
+          <td class="num col-hcm">168</td>
+          <td class="num col-bn">0</td>
+          <td class="num stock-total strong">111</td>
+          <td class="num stock-hcm">111</td>
+          <td class="num stock-bn">0</td>
+          <td class="num strong">40d</td>
+          <td class="num risk-safe">40d</td>
+          <td class="num risk-critical">0.0d</td>
+          <td class="center"><span class="badge risk-safe">SAFE</span></td>
+          <td class="center"><span class="badge risk-critical">CRITICAL</span></td>
+          <td class="center"><span class="badge risk-safe">SAFE</span></td>
+        </tr>
+        <tr class="row-safe">
+          <td class="rank">#23</td>
+          <td><code class="sku">4011552</code></td>
+          <td class="product-cell">MLF TN TA QUAN XXL 42X3 S.JUMBO VN W1<div class="mini-tags"><span class="tag hcm">HCM 82%</span><span class="tag bn">BN 18%</span><span class="tag neutral">South HCM</span></div></td>
+          <td class="num strong">49.2M</td>
+          <td class="num col-hcm">40.4M</td>
+          <td class="num col-bn">8.8M</td>
+          <td class="num strong">128</td>
+          <td class="num col-hcm">105</td>
+          <td class="num col-bn">23</td>
+          <td class="num stock-total strong">544</td>
+          <td class="num stock-hcm">473</td>
+          <td class="num stock-bn">71</td>
+          <td class="num strong">259d</td>
+          <td class="num risk-safe">225d</td>
+          <td class="num risk-safe">34d</td>
+          <td class="center"><span class="badge risk-safe">SAFE</span></td>
+          <td class="center"><span class="badge risk-safe">SAFE</span></td>
+          <td class="center"><span class="badge risk-safe">SAFE</span></td>
+        </tr>
+        <tr class="row-critical">
+          <td class="rank">#24</td>
+          <td><code class="sku">5103280</code></td>
+          <td class="product-cell">MOLFIX OXY TA QUAN XXL 42 S.JUMBO VN<div class="mini-tags"><span class="tag hcm">HCM 82%</span><span class="tag bn">BN 18%</span><span class="tag neutral">South HCM</span></div></td>
+          <td class="num strong">47.9M</td>
+          <td class="num col-hcm">39.2M</td>
+          <td class="num col-bn">8.7M</td>
+          <td class="num strong">305</td>
+          <td class="num col-hcm">246</td>
+          <td class="num col-bn">59</td>
+          <td class="num stock-total strong">79</td>
+          <td class="num stock-hcm">0</td>
+          <td class="num stock-bn">79</td>
+          <td class="num strong">16d</td>
+          <td class="num risk-critical">0.0d</td>
+          <td class="num risk-safe">16d</td>
+          <td class="center"><span class="badge risk-critical">CRITICAL</span></td>
+          <td class="center"><span class="badge risk-safe">SAFE</span></td>
+          <td class="center"><span class="badge risk-safe">SAFE</span></td>
+        </tr>
+        <tr class="row-safe">
+          <td class="rank">#25</td>
+          <td><code class="sku">5100864</code></td>
+          <td class="product-cell">MLF TN TA DAN NB 70 pcs JUMBO VN W1<div class="mini-tags"><span class="tag hcm">HCM 80%</span><span class="tag bn">BN 20%</span><span class="tag neutral">South HCM</span></div></td>
+          <td class="num strong">34.5M</td>
+          <td class="num col-hcm">27.6M</td>
+          <td class="num col-bn">6.9M</td>
+          <td class="num strong">220</td>
+          <td class="num col-hcm">176</td>
+          <td class="num col-bn">44</td>
+          <td class="num stock-total strong">586</td>
+          <td class="num stock-hcm">436</td>
+          <td class="num stock-bn">150</td>
+          <td class="num strong">162d</td>
+          <td class="num risk-safe">121d</td>
+          <td class="num risk-safe">42d</td>
+          <td class="center"><span class="badge risk-safe">SAFE</span></td>
+          <td class="center"><span class="badge risk-safe">SAFE</span></td>
+          <td class="center"><span class="badge risk-safe">SAFE</span></td>
+        </tr>
+        <tr class="row-safe">
+          <td class="rank">#26</td>
+          <td><code class="sku">5100875</code></td>
+          <td class="product-cell">MLF TN TA DAN M 76X3 S.JUMBO VN W1<div class="mini-tags"><span class="tag hcm">HCM 75%</span><span class="tag bn">BN 25%</span><span class="tag neutral">South HCM</span></div></td>
+          <td class="num strong">32.1M</td>
+          <td class="num col-hcm">24.0M</td>
+          <td class="num col-bn">8.1M</td>
+          <td class="num strong">145</td>
+          <td class="num col-hcm">108</td>
+          <td class="num col-bn">37</td>
+          <td class="num stock-total strong">313</td>
+          <td class="num stock-hcm">262</td>
+          <td class="num stock-bn">51</td>
+          <td class="num strong">132d</td>
+          <td class="num risk-safe">110d</td>
+          <td class="num risk-safe">21d</td>
+          <td class="center"><span class="badge risk-safe">SAFE</span></td>
+          <td class="center"><span class="badge risk-safe">SAFE</span></td>
+          <td class="center"><span class="badge risk-safe">SAFE</span></td>
+        </tr>
+        <tr class="row-safe">
+          <td class="rank">#27</td>
+          <td><code class="sku">4012328</code></td>
+          <td class="product-cell">MOLFIX TN KHAN UOT E.BE VE SINH DA100X12<div class="mini-tags"><span class="tag hcm">HCM 87%</span><span class="tag bn">BN 13%</span><span class="tag neutral">South HCM</span></div></td>
+          <td class="num strong">30.3M</td>
+          <td class="num col-hcm">26.5M</td>
+          <td class="num col-bn">3.8M</td>
+          <td class="num strong">100</td>
+          <td class="num col-hcm">88</td>
+          <td class="num col-bn">12</td>
+          <td class="num stock-total strong">244</td>
+          <td class="num stock-hcm">172</td>
+          <td class="num stock-bn">72</td>
+          <td class="num strong">149d</td>
+          <td class="num risk-safe">105d</td>
+          <td class="num risk-safe">44d</td>
+          <td class="center"><span class="badge risk-safe">SAFE</span></td>
+          <td class="center"><span class="badge risk-safe">SAFE</span></td>
+          <td class="center"><span class="badge risk-safe">SAFE</span></td>
+        </tr>
+        <tr class="row-safe">
+          <td class="rank">#28</td>
+          <td><code class="sku">5075211</code></td>
+          <td class="product-cell">MOLFIX TN KHAN UOT E.BE VE SINH DA100 pcs<div class="mini-tags"><span class="tag hcm">HCM 99%</span><span class="tag bn">BN 1%</span><span class="tag neutral">South HCM</span></div></td>
+          <td class="num strong">26.8M</td>
+          <td class="num col-hcm">26.6M</td>
+          <td class="num col-bn">0.2M</td>
+          <td class="num strong">1,034</td>
+          <td class="num col-hcm">1,025</td>
+          <td class="num col-bn">9</td>
+          <td class="num stock-total strong">2,387</td>
+          <td class="num stock-hcm">1,431</td>
+          <td class="num stock-bn">956</td>
+          <td class="num strong">141d</td>
+          <td class="num risk-safe">84d</td>
+          <td class="num risk-safe">56d</td>
+          <td class="center"><span class="badge risk-safe">SAFE</span></td>
+          <td class="center"><span class="badge risk-safe">SAFE</span></td>
+          <td class="center"><span class="badge risk-safe">SAFE</span></td>
+        </tr>
+        <tr class="row-safe">
+          <td class="rank">#29</td>
+          <td><code class="sku">4012842</code></td>
+          <td class="product-cell">(COMBO 3) MOLFIX OXY PANTS M 56X3 S.JUMBO VN PM<div class="mini-tags"><span class="tag hcm">HCM 76%</span><span class="tag bn">BN 24%</span><span class="tag neutral">South HCM</span></div></td>
+          <td class="num strong">25.1M</td>
+          <td class="num col-hcm">19.1M</td>
+          <td class="num col-bn">6.0M</td>
+          <td class="num strong">42</td>
+          <td class="num col-hcm">32</td>
+          <td class="num col-bn">10</td>
+          <td class="num stock-total strong">231</td>
+          <td class="num stock-hcm">137</td>
+          <td class="num stock-bn">94</td>
+          <td class="num strong">336d</td>
+          <td class="num risk-safe">199d</td>
+          <td class="num risk-safe">137d</td>
+          <td class="center"><span class="badge risk-safe">SAFE</span></td>
+          <td class="center"><span class="badge risk-safe">SAFE</span></td>
+          <td class="center"><span class="badge risk-safe">SAFE</span></td>
+        </tr>
+        <tr class="row-safe">
+          <td class="rank">#30</td>
+          <td><code class="sku">5090167</code></td>
+          <td class="product-cell">MOLFIX TN TA DAN S 54 pcs JUMBO VN C2<div class="mini-tags"><span class="tag hcm">HCM 82%</span><span class="tag bn">BN 17%</span><span class="tag neutral">South HCM</span></div></td>
+          <td class="num strong">25.0M</td>
+          <td class="num col-hcm">20.6M</td>
+          <td class="num col-bn">4.3M</td>
+          <td class="num strong">161</td>
+          <td class="num col-hcm">133</td>
+          <td class="num col-bn">28</td>
+          <td class="num stock-total strong">218</td>
+          <td class="num stock-hcm">160</td>
+          <td class="num stock-bn">58</td>
+          <td class="num strong">83d</td>
+          <td class="num risk-safe">61d</td>
+          <td class="num risk-safe">22d</td>
+          <td class="center"><span class="badge risk-safe">SAFE</span></td>
+          <td class="center"><span class="badge risk-safe">SAFE</span></td>
+          <td class="center"><span class="badge risk-safe">SAFE</span></td>
+        </tr></tbody>
+      </table>
+    </div>
+  </section>
+
+
+  <section class="section">
+    <div class="section-title"><span>Top Slow Moving Lines</span><span class="section-note">Main products: 16 SKUs / 1,636 units &middot; Gift: 33 SKUs / 399 units</span></div>
+    <div class="section-title" style="margin-top:4px"><span>Slow moving for main product</span></div>
+    <div class="table-wrap"><table class="mini-table"><thead><tr><th>SKU</th><th>Product</th><th>Warehouse</th><th class="num">In stock</th><th class="center">Age</th><th>Last outbound</th></tr></thead><tbody>
+          <tr>
+            <td><code class="sku">50005469</code></td>
+            <td class="product-cell">(LẺ GÓI) BINGO DISHWASHER S. CAP PRO MAX 60 EXP</td>
+            <td>South HCM</td>
+            <td class="num strong">400</td>
+            <td class="center"><span class="badge risk-high">No outbound</span></td>
+            <td>No outbound</td>
+          </tr>
+          <tr>
+            <td><code class="sku">50005486</code></td>
+            <td class="product-cell">(LẺ GÓI) BINGO SMART DISHWASH CAPSUL PRO 80 EXP</td>
+            <td>South HCM</td>
+            <td class="num strong">400</td>
+            <td class="center"><span class="badge risk-high">No outbound</span></td>
+            <td>No outbound</td>
+          </tr>
+          <tr>
+            <td><code class="sku">50005475</code></td>
+            <td class="product-cell">(LẺ GÓI) BINGO SMART DISHWASH CAPSUL PRO 36 EXP</td>
+            <td>North BN</td>
+            <td class="num strong">150</td>
+            <td class="center"><span class="badge risk-high">No outbound</span></td>
+            <td>No outbound</td>
+          </tr>
+          <tr>
+            <td><code class="sku">50005467</code></td>
+            <td class="product-cell">(LẺ GÓI) BINGO DISHWASHER S. CAP PRO MAX 20 EXP</td>
+            <td>North BN</td>
+            <td class="num strong">140</td>
+            <td class="center"><span class="badge risk-high">No outbound</span></td>
+            <td>No outbound</td>
+          </tr>
+          <tr>
+            <td><code class="sku">50005469</code></td>
+            <td class="product-cell">(LẺ GÓI) BINGO DISHWASHER S. CAP PRO MAX 60 EXP</td>
+            <td>North BN</td>
+            <td class="num strong">120</td>
+            <td class="center"><span class="badge risk-high">No outbound</span></td>
+            <td>No outbound</td>
+          </tr>
+          <tr>
+            <td><code class="sku">50005486</code></td>
+            <td class="product-cell">(LẺ GÓI) BINGO SMART DISHWASH CAPSUL PRO 80 EXP</td>
+            <td>North BN</td>
+            <td class="num strong">120</td>
+            <td class="center"><span class="badge risk-high">No outbound</span></td>
+            <td>No outbound</td>
+          </tr>
+          <tr>
+            <td><code class="sku">50203667</code></td>
+            <td class="product-cell">[COMBO 8] BVS NEW MOLPEDTN S.BAOVE SM K.CANH 8X8</td>
+            <td>North BN</td>
+            <td class="num strong">103</td>
+            <td class="center"><span class="badge risk-high">32d</span></td>
+            <td>16/04/2026</td>
+          </tr>
+          <tr>
+            <td><code class="sku">4012681</code></td>
+            <td class="product-cell">(COMBO 3) MLF TN TA QUAN XL 62X3 ULTRA VN W1</td>
+            <td>North BN</td>
+            <td class="num strong">54</td>
+            <td class="center"><span class="badge risk-high">43d</span></td>
+            <td>05/04/2026</td>
+          </tr>
+          <tr>
+            <td><code class="sku">4012682</code></td>
+            <td class="product-cell">(COMBO 3) MLF TN TA QUAN L 68X3 ULTRA VN W1</td>
+            <td>South HCM</td>
+            <td class="num strong">43</td>
+            <td class="center"><span class="badge risk-high">42d</span></td>
+            <td>06/04/2026</td>
+          </tr>
+          <tr>
+            <td><code class="sku">4012682</code></td>
+            <td class="product-cell">(COMBO 3) MLF TN TA QUAN L 68X3 ULTRA VN W1</td>
+            <td>North BN</td>
+            <td class="num strong">35</td>
+            <td class="center"><span class="badge risk-high">43d</span></td>
+            <td>05/04/2026</td>
+          </tr>
+        </tbody></table></div>
+    <div class="section-title" style="margin-top:18px"><span>Slow moving for Gift</span></div>
+    <div class="table-wrap"><table class="mini-table"><thead><tr><th>SKU</th><th>Product</th><th>Warehouse</th><th class="num">In stock</th><th class="num">Damaged</th><th class="center">Age</th><th>Last outbound</th></tr></thead><tbody>
+          <tr>
+            <td><code class="sku">9606419</code></td>
+            <td class="product-cell">[QUÀ TẶNG KHÔNG BÁN] MLP BONG TAM SILICON_VN</td>
+            <td>North BN</td>
+            <td class="num strong">79</td>
+            <td class="num">0</td>
+            <td class="center"><span class="badge risk-high">131d</span></td>
+            <td>07/01/2026</td>
+          </tr>
+          <tr>
+            <td><code class="sku">9606367</code></td>
+            <td class="product-cell">[QUÀ TẶNG KHÔNG BÁN] MLP NAT GIFT BANG DO CO DIEN_VN</td>
+            <td>North BN</td>
+            <td class="num strong">65</td>
+            <td class="num">0</td>
+            <td class="center"><span class="badge risk-high">No outbound</span></td>
+            <td>No outbound</td>
+          </tr>
+          <tr>
+            <td><code class="sku">9606498</code></td>
+            <td class="product-cell">[QUÀ TẶNG KHÔNG BÁN] MLF NAT NOI NAU CHAM ELMICH_VN</td>
+            <td>South HCM</td>
+            <td class="num strong">50</td>
+            <td class="num">0</td>
+            <td class="center"><span class="badge risk-high">241d</span></td>
+            <td>19/09/2025</td>
+          </tr>
+          <tr>
+            <td><code class="sku">9606498</code></td>
+            <td class="product-cell">[QUÀ TẶNG KHÔNG BÁN] MLF NAT NOI NAU CHAM ELMICH_VN</td>
+            <td>North BN</td>
+            <td class="num strong">20</td>
+            <td class="num">0</td>
+            <td class="center"><span class="badge risk-high">No outbound</span></td>
+            <td>No outbound</td>
+          </tr>
+          <tr>
+            <td><code class="sku">9606419</code></td>
+            <td class="product-cell">[QUÀ TẶNG KHÔNG BÁN] MLP BONG TAM SILICON_VN</td>
+            <td>South HCM</td>
+            <td class="num strong">17</td>
+            <td class="num">0</td>
+            <td class="center"><span class="badge risk-high">131d</span></td>
+            <td>07/01/2026</td>
+          </tr>
+          <tr>
+            <td><code class="sku">50203751</code></td>
+            <td class="product-cell">[QUÀ TẶNG KHÔNG BÁN] MLP ANTIBAC SLIM WINGS 23 CM 2X100 VN</td>
+            <td>South HCM</td>
+            <td class="num strong">15</td>
+            <td class="num">0</td>
+            <td class="center"><span class="badge risk-high">94d</span></td>
+            <td>13/02/2026</td>
+          </tr>
+          <tr>
+            <td><code class="sku">60136998</code></td>
+            <td class="product-cell">[QUÀ TẶNG KHÔNG BÁN] MLF NAT GIFT FROG-SHAPED PUSH CAR_VN</td>
+            <td>South HCM</td>
+            <td class="num strong">15</td>
+            <td class="num">28</td>
+            <td class="center"><span class="badge risk-high">33d</span></td>
+            <td>15/04/2026</td>
+          </tr>
+          <tr>
+            <td><code class="sku">9606389</code></td>
+            <td class="product-cell">[QUÀ TẶNG KHÔNG BÁN] MLF NAT GIFT KE DI DONG TOKYO_VN</td>
+            <td>North BN</td>
+            <td class="num strong">13</td>
+            <td class="num">0</td>
+            <td class="center"><span class="badge risk-high">112d</span></td>
+            <td>26/01/2026</td>
+          </tr>
+          <tr>
+            <td><code class="sku">9607018</code></td>
+            <td class="product-cell">[QUÀ TẶNG KHÔNG BÁN] BINH NUOC KITA BOO</td>
+            <td>North BN</td>
+            <td class="num strong">10</td>
+            <td class="num">0</td>
+            <td class="center"><span class="badge risk-high">106d</span></td>
+            <td>01/02/2026</td>
+          </tr>
+          <tr>
+            <td><code class="sku">60137529</code></td>
+            <td class="product-cell">[QUÀ TẶNG KHÔNG BÁN] MLF NAT GIFT NON-STICK COOKING POT_VN</td>
+            <td>North BN</td>
+            <td class="num strong">8</td>
+            <td class="num">2</td>
+            <td class="center"><span class="badge risk-high">111d</span></td>
+            <td>27/01/2026</td>
+          </tr>
+        </tbody></table></div>
+  </section>
+
+
+
+  <section class="section">
+    <div class="section-title"><span>Bingo Brand View</span><span class="section-note">NMV from processed order list; stock/outbound from Inventory Report</span></div>
+    <div class="grid-3" style="margin-bottom:14px">
+      <div class="metric"><b>4</b><span>Bingo SKUs</span></div>
+      <div class="metric"><b>721,530</b><span>Bingo NMV</span></div>
+      <div class="metric"><b>2,169</b><span>Bingo total stock</span></div>
+      <div class="metric"><b>4</b><span>outbound units in inventory period</span></div>
+    </div>
+    <p class="section-note" style="margin-bottom:10px">1,330 Bingo units are in the slow/no-outbound scope. Bingo NMV total is 721,530 VND from the processed order list.</p>
+    <div class="table-wrap"><table class="mini-table"><thead><tr><th>SKU</th><th>Product</th><th class="num">NMV</th><th class="num">Stock Total</th><th class="num">South HCM</th><th class="num">North BN</th><th class="num">Outbound Total</th><th class="num">Outbound HCM</th><th class="num">Outbound BN</th><th class="num">DOS</th></tr></thead><tbody>
+      <tr>
+        <td><code class="sku">50005467</code></td>
+        <td class="product-cell">(LẺ GÓI) BINGO DISHWASHER S. CAP PRO MAX 20 EXP</td>
+        <td class="num strong">170,970</td>
+        <td class="num strong">483</td>
+        <td class="num stock-hcm">343</td>
+        <td class="num stock-bn">140</td>
+        <td class="num strong">2</td>
+        <td class="num col-hcm">2</td>
+        <td class="num col-bn">0</td>
+        <td class="num">14,732d</td>
+      </tr>
+      <tr>
+        <td><code class="sku">50005469</code></td>
+        <td class="product-cell">(LẺ GÓI) BINGO DISHWASHER S. CAP PRO MAX 60 EXP</td>
+        <td class="num strong">0</td>
+        <td class="num strong">520</td>
+        <td class="num stock-hcm">400</td>
+        <td class="num stock-bn">120</td>
+        <td class="num strong">0</td>
+        <td class="num col-hcm">0</td>
+        <td class="num col-bn">0</td>
+        <td class="num">No sales</td>
+      </tr>
+      <tr>
+        <td><code class="sku">50005475</code></td>
+        <td class="product-cell">(LẺ GÓI) BINGO SMART DISHWASH CAPSUL PRO 36 EXP</td>
+        <td class="num strong">550,560</td>
+        <td class="num strong">646</td>
+        <td class="num stock-hcm">496</td>
+        <td class="num stock-bn">150</td>
+        <td class="num strong">2</td>
+        <td class="num col-hcm">2</td>
+        <td class="num col-bn">0</td>
+        <td class="num">19,703d</td>
+      </tr>
+      <tr>
+        <td><code class="sku">50005486</code></td>
+        <td class="product-cell">(LẺ GÓI) BINGO SMART DISHWASH CAPSUL PRO 80 EXP</td>
+        <td class="num strong">0</td>
+        <td class="num strong">520</td>
+        <td class="num stock-hcm">400</td>
+        <td class="num stock-bn">120</td>
+        <td class="num strong">0</td>
+        <td class="num col-hcm">0</td>
+        <td class="num col-bn">0</td>
+        <td class="num">No sales</td>
+      </tr></tbody></table></div>
+  </section>
+
+  <div class="footer">Daily Inventory Risk Report &middot; TOP 30 sales metrics from dashboard, stock metrics recalculated from BOXME Inventory / Dead Stock reports &middot; 19/05/2026</div>
+</main>
+</body>
+</html>
